@@ -1,0 +1,337 @@
+{
+  "grade": "5-6",
+  "title_uz": "5–6-sinf o‘quvchilari uchun «Mening qiziqishlarim va kelajakdagi kasbim» so‘rovnomasi",
+  "title_ru": "Опросник «Мои интересы и будущая профессия» для учащихся 5–6 классов",
+  "instruction_uz": "Savollarga o‘zingizning haqiqiy fikringiz asosida javob bering. To‘g‘ri yoki noto‘g‘ri javob yo‘q.",
+  "instruction_ru": "Отвечайте на вопросы искренне, основываясь на ваших интересах. Здесь нет правильных или неправильных ответов.",
+  "questions": [
+    {
+      "id": 1,
+      "type": "checkbox",
+      "question_uz": "Maktabda qaysi fanlarni o‘rganish sizga ko‘proq yoqadi?",
+      "question_ru": "Какие предметы в школе вам больше всего нравятся?",
+      "options_uz": [
+        "Matematika",
+        "Ona tili va adabiyot",
+        "Tarix",
+        "Chet tili",
+        "Informatika",
+        "Biologiya",
+        "Kimyo",
+        "Fizika",
+        "Musiqa",
+        "Tasviriy san’at",
+        "Jismoniy tarbiya"
+      ],
+      "options_ru": [
+        "Математика",
+        "Родной язык и литература",
+        "История",
+        "Иностранный язык",
+        "Информатика",
+        "Биология",
+        "Химия",
+        "Физика",
+        "Музыка",
+        "Изобразительное искусство",
+        "Физкультура"
+      ],
+      "allow_other": true
+    },
+    {
+      "id": 2,
+      "type": "checkbox",
+      "question_uz": "Bo‘sh vaqtingizda nimalar bilan shug‘ullanishni yoqtirasiz?",
+      "question_ru": "Чем вы любите заниматься в свободное время?",
+      "options_uz": [
+        "Kitob o‘qish",
+        "Sport",
+        "Rasm chizish",
+        "Qo‘shiq aytish / cholg‘u",
+        "Kompyuter va IT",
+        "Video / montaj / dizayn",
+        "Tabiat va hayvonlar",
+        "Pazandachilik / hunar"
+      ],
+      "options_ru": [
+        "Чтение книг",
+        "Спорт",
+        "Рисование",
+        "Пение / игра на инструментах",
+        "Компьютер и IT",
+        "Видео / монтаж / дизайн",
+        "Природа и животные",
+        "Кулинария / рукоделие"
+      ],
+      "allow_other": true
+    },
+    {
+      "id": 3,
+      "type": "checkbox",
+      "question_uz": "O‘zingizda qaysi qobiliyat kuchliroq deb o‘ylaysiz?",
+      "question_ru": "Какие способности у вас развиты лучше всего?",
+      "options_uz": [
+        "Hisoblash va mantiq",
+        "Chiroyli gapirish",
+        "Rasm / chizma chizish",
+        "Texnika va kompyuter",
+        "Musiqa va ijod",
+        "Sport",
+        "Tashkilotchilik",
+        "Tinglash va yordam berish",
+        "Hali bilmayman"
+      ],
+      "options_ru": [
+        "Счет и логика",
+        "Красивая речь / ораторство",
+        "Рисование / черчение",
+        "Техника и компьютеры",
+        "Музыка и творчество",
+        "Спорт",
+        "Организаторские способности",
+        "Умение слушать и помогать",
+        "Пока не знаю"
+      ],
+      "allow_other": false
+    },
+    {
+      "id": 4,
+      "type": "radio",
+      "question_uz": "Yangi narsani o‘rganishda qaysi usul sizga ko‘proq yoqadi?",
+      "question_ru": "Какой способ изучения нового вам нравится больше всего?",
+      "options_uz": [
+        "O‘qib o‘rganish",
+        "Amalda bajarib ko‘rish",
+        "Video darslar orqali",
+        "Ustozdan so‘rab",
+        "Do‘stlar bilan birgalikda",
+        "Tajriba qilib ko‘rish"
+      ],
+      "options_ru": [
+        "Чтение материалов",
+        "Практическое выполнение",
+        "Через обучающие видео",
+        "Спрашивая у наставника",
+        "Вместе с друзьями",
+        "Через эксперименты"
+      ],
+      "allow_other": false
+    },
+    {
+      "id": 5,
+      "type": "checkbox",
+      "question_uz": "Quyidagi faoliyatlardan qaysi biri sizga eng qiziq?",
+      "question_ru": "Какая из следующих сфер деятельности вам наиболее интересна?",
+      "options_uz": [
+        "Kompyuter / IT",
+        "Tibbiyot",
+        "Texnika va muhandislik",
+        "San’at va ijod",
+        "Sport",
+        "Ta’lim va pedagogika",
+        "Huquq va davlat xizmati",
+        "Biznes va tadbirkorlik",
+        "Tabiat va ekologiya",
+        "Media / jurnalistika"
+      ],
+      "options_ru": [
+        "Компьютеры / IT",
+        "Медицина",
+        "Техника и инженерия",
+        "Искусство и творчество",
+        "Спорт",
+        "Образование и педагогика",
+        "Юриспруденция / гос. служба",
+        "Бизнес и предпринимательство",
+        "Природа и экология",
+        "Медиа / журналистика"
+      ],
+      "allow_other": false
+    },
+    {
+      "id": 6,
+      "type": "text3",
+      "question_uz": "Kelajakda qaysi kasb yoki kasblarga qiziqasiz? (3 tagacha yozing):",
+      "question_ru": "Какими профессиями вы интересуетесь на будущее? (до 3 профессий):",
+      "placeholders_uz": [
+        "1-kasb (masalan, Dasturchi)",
+        "2-kasb (masalan, Shifokor)",
+        "3-kasb (masalan, Arxitektor)"
+      ],
+      "placeholders_ru": [
+        "1-я профессия (напр., Программист)",
+        "2-я профессия (напр., Врач)",
+        "3-я профессия (напр., Архитектор)"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "radio",
+      "question_uz": "Bu kasbga qiziqishingizga nima sabab bo‘lgan?",
+      "question_ru": "Что повлияло на ваш интерес к этой профессии?",
+      "options_uz": [
+        "Bu kasb menga juda yoqadi",
+        "Tanishim / yaqinim shu kasbda ishlaydi",
+        "Bolaligimdan orzu qilaman",
+        "Daromadi va nufuzi yaxshi deb o‘ylayman",
+        "Odamlarga yordam berishni xohlayman",
+        "Hali aniq bilmayman"
+      ],
+      "options_ru": [
+        "Мне очень нравится эта профессия",
+        "Знакомый / родственник работает в этой сфере",
+        "Мечтаю с детства",
+        "Считаю престижной и доходной",
+        "Хочу помогать людям",
+        "Пока точно не знаю"
+      ],
+      "allow_other": true
+    },
+    {
+      "id": 8,
+      "type": "checkbox",
+      "question_uz": "Siz ko‘proq qanday ishni bajarishni xohlaysiz?",
+      "question_ru": "Какую работу вы предпочли бы выполнять больше всего?",
+      "options_uz": [
+        "Odamlar bilan ishlash",
+        "Kompyuter bilan ishlash",
+        "Texnika va qurilmalar",
+        "Hayvonlar va tabiat",
+        "Bolalar bilan ishlash",
+        "Ijodiy ishlar",
+        "Mustaqil ishlash",
+        "Jamoa bilan ishlash"
+      ],
+      "options_ru": [
+        "Работа с людьми",
+        "Работа с компьютером",
+        "Техника и устройства",
+        "Животные и природа",
+        "Работа с детьми",
+        "Творческая деятельность",
+        "Самостоятельная работа",
+        "Работа в команде"
+      ],
+      "allow_other": false
+    },
+    {
+      "id": 9,
+      "type": "checkbox",
+      "question_uz": "Qaysi to‘garak yoki klub sizni ko‘proq qiziqtiradi?",
+      "question_ru": "Какой кружок или клуб вас больше всего интересует?",
+      "options_uz": [
+        "IT / robototexnika",
+        "Xorijiy tillar (Ingliz, Nemis, Rus)",
+        "Debat va munozara",
+        "Sport to‘garaklari",
+        "Musiqa va vokal",
+        "Teatr va sahna",
+        "Rasm / grafik dizayn",
+        "Kitobxonlik klubi",
+        "Ekologiya va tabiatshunoslik"
+      ],
+      "options_ru": [
+        "IT / робототехника",
+        "Иностранные языки",
+        "Дебатный клуб",
+        "Спортивные секции",
+        "Музыка и вокал",
+        "Театр и сцена",
+        "Рисование / дизайн",
+        "Клуб книголюбов",
+        "Экология и естествознание"
+      ],
+      "allow_other": true
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "question_uz": "Maktabda yangi to‘garak ochilsa, qaysi yo‘nalishda bo‘lishini xohlardingiz?",
+      "question_ru": "Если в школе откроется новый кружок, по какому направлению вы хотите?",
+      "placeholder_uz": "Masalan: Sun'iy intellekt, 3D modellashtirish, Oshpazlik, Shaxmat...",
+      "placeholder_ru": "Например: Искусственный интеллект, 3D моделирование, Кулинария, Шахматы..."
+    },
+    {
+      "id": 11,
+      "type": "checkbox",
+      "question_uz": "O‘zingizni kelajakda qanday inson sifatida tasavvur qilasiz?",
+      "question_ru": "Кем вы представляете себя в будущем?",
+      "options_uz": [
+        "Yaxshi mutaxassis",
+        "Tadbirkor / biznesmen",
+        "Olim / kashfiyotchi",
+        "Ijodkor / san’atkor",
+        "Mashhur sportchi",
+        "Rahbar / yetakchi",
+        "O‘qituvchi / murabbiy"
+      ],
+      "options_ru": [
+        "Квалифицированный специалист",
+        "Предприниматель / бизнесмен",
+        "Ученый / исследователь",
+        "Творческий деятель",
+        "Известный спортсмен",
+        "Руководитель / лидер",
+        "Учитель / наставник"
+      ],
+      "allow_other": true
+    },
+    {
+      "id": 12,
+      "type": "checkbox",
+      "question_uz": "Sizga kasb tanlashda kimning maslahati ko‘proq ta’sir qiladi?",
+      "question_ru": "Чей совет больше всего влияет на ваш выбор профессии?",
+      "options_uz": [
+        "Ota-onam",
+        "O‘qituvchim",
+        "Sinfdoshlarim va do‘stlarim",
+        "Maktab maslahatchisi",
+        "Psixolog",
+        "O‘zim mustaqil tanlayman"
+      ],
+      "options_ru": [
+        "Родители",
+        "Учителя",
+        "Одноклассники и друзья",
+        "Школьный консультант",
+        "Психолог",
+        "Выбираю самостоятельно"
+      ],
+      "allow_other": true
+    },
+    {
+      "id": 13,
+      "type": "radio_with_input",
+      "question_uz": "Kelajakdagi kasbingiz haqida ma’lumot olishni xohlaysizmi?",
+      "question_ru": "Хотите ли вы получить подробную информацию о будущей профессии?",
+      "options_uz": [
+        "Ha",
+        "Yo‘q",
+        "Hali o‘ylab ko‘rmaganman"
+      ],
+      "options_ru": [
+        "Да",
+        "Нет",
+        "Пока не задумывался"
+      ],
+      "sub_prompt_uz": "Agar «Ha» bo‘lsa, qaysi kasb haqida?",
+      "sub_prompt_ru": "Если «Да», о какой профессии?"
+    },
+    {
+      "id": 14,
+      "type": "text",
+      "question_uz": "Siz maktab hayotini yaxshilash uchun qanday yangi g‘oya yoki tashabbus taklif qilgan bo‘lardingiz?",
+      "question_ru": "Какую новую идею или инициативу вы предложили бы для улучшения школьной жизни?",
+      "placeholder_uz": "Taklif va tashabbuslaringizni yozing...",
+      "placeholder_ru": "Напишите ваши идеи и предложения..."
+    },
+    {
+      "id": 15,
+      "type": "text",
+      "question_uz": "O‘zingiz haqingizda biz bilishimiz kerak deb hisoblagan boshqa qiziqishingiz, qobiliyatingiz yoki orzuingiz bormi?",
+      "question_ru": "Есть ли у вас другие интересы, таланты или мечты, о которых нам следует знать?",
+      "placeholder_uz": "Orzularingiz yoki o'zingiz haqingizda...",
+      "placeholder_ru": "Ваши мечты или дополнительная информация о себе..."
+    }
+  ]
+}

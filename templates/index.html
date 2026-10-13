@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-Maktab | O'quvchilar So'rovnomasi va Kasbiy Diagnostika 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- SheetJS for Client-side Excel Export -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+    <!-- Navbar (Neo-Emerald Glass Navbar - 1-to-1) -->
+    <header class="sticky top-0 z-40 glass-nav shadow-sm transition-all no-print">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-3">
+                    <a href="/" class="flex items-center space-x-3 group">
+                        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-600 flex items-center justify-center text-white shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">35-Maktab</span>
+                                <span class="text-[10px] font-bold text-teal-700 bg-teal-100/80 px-2 py-0.5 rounded-full uppercase tracking-wider">Portali</span>
+                            </div>
+                            <span class="text-[11px] text-slate-500 block font-medium">Qiziqish va iqtidorni aniqlash</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sinf Rahbari & Status Badge -->
+                <div class="flex items-center space-x-2">
+                    <a href="/oqituvchi" class="px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 transition-all flex items-center space-x-1.5 shadow-sm" title="Sinf rahbarlari kabineti">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-700"></i>
+                        <span>Sinf Rahbari</span>
+                    </a>
+                    <div class="hidden sm:flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50/90 border border-emerald-200/70 px-3.5 py-1.5 rounded-full shadow-sm">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                        </span>
+                        <span>Faol So'rovnoma • 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1">
+        <div class="max-w-3xl mx-auto py-6 sm:py-10 px-4 sm:px-6">
+
+            <!-- Language Selector Pill -->
+            <div class="glass-card rounded-2xl p-3 sm:p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 border border-emerald-500/20 shadow-sm">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+                        <i data-lucide="languages" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs sm:text-sm font-bold text-gray-800" id="langBarTitle">So'rovnoma tili / Язык анкеты:</span>
+                        <span class="text-[11px] text-gray-400 block sm:inline sm:ml-1" id="langBarSub">O'zingizga qulay tilni tanlang</span>
+                    </div>
+                </div>
+                <div class="inline-flex rounded-xl p-1 bg-gray-100/90 border border-gray-200" role="group">
+                    <button type="button" onclick="setLanguage('uz')" id="langUzBtn" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white shadow-sm">
+                        O'zbekcha
+                    </button>
+                    <button type="button" onclick="setLanguage('ru')" id="langRuBtn" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-600 hover:text-gray-900">
+                        Русский
+                    </button>
+                </div>
+            </div>
+
+            <div id="surveyFormCard" class="space-y-6">
+
+                <!-- Modern Hero Banner -->
+                <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-950 via-slate-900 to-teal-950 text-white p-6 sm:p-10 shadow-2xl border border-emerald-500/30">
+                    <!-- Background Orbs -->
+                    <div class="absolute -top-16 -right-16 w-56 h-56 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-teal-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 space-y-3">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+                                <i data-lucide="school" class="w-3.5 h-3.5"></i>
+                                <span>35-SONLI MAKTAB</span>
+                            </span>
+                            <span class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/10 text-emerald-100 backdrop-blur-md" id="headerTag">
+                                2026-o'quv yili
+                            </span>
+                        </div>
+
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight" id="formMainTitle">
+                            O'quvchilarning qiziqish va iqtidorini aniqlash so'rovnomasi
+                        </h1>
+
+                        <p class="text-emerald-100/80 text-xs sm:text-sm leading-relaxed max-w-2xl" id="formMainSubtitle">
+                            Hurmatli o'quvchi! Ushbu so'rovnoma sizning qiziqishlaringiz va kelajakdagi maqsadlaringizni aniqlash hamda yangi qiziqarli to'garaklar tashkil etish uchun xizmat qiladi.
+                        </p>
+
+                        <div class="pt-2 flex items-center space-x-4 text-[11px] text-emerald-200/70">
+                            <span class="flex items-center space-x-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i><span id="txtDuration">Davomiyligi: ~2-3 daqiqa</span></span>
+                            <span class="flex items-center space-x-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i><span id="txtPrivacyBadge">Xavfsiz & Rasmiy</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sticky Dynamic Progress Bar -->
+                <div class="sticky top-20 z-20 glass-card bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-emerald-500/20 shadow-lg transition-all">
+                    <div class="flex items-center justify-between text-xs font-bold text-gray-700 mb-2">
+                        <span class="flex items-center space-x-1.5">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i>
+                            <span id="progressLabel">To'ldirish ko'rsatkichi:</span>
+                        </span>
+                        <span id="progressPercent" class="font-mono text-emerald-700 font-extrabold text-sm">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden p-0.5 border border-gray-200">
+                        <div id="surveyProgressBar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-500 ease-out" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <!-- Survey Form -->
+                <form id="publicSurveyForm" onsubmit="submitSurvey(event)" class="space-y-6">
+                    
+                    <!-- SECTION 1: Shaxsiy ma'lumotlar -->
+                    <div class="glass-card bg-white rounded-3xl p-6 sm:p-8 border border-emerald-900/10 shadow-sm space-y-5">
+                        <div class="flex items-center space-x-3 pb-3 border-b border-gray-100">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-700 font-extrabold text-sm flex items-center justify-center">
+                                1
+                            </div>
+                            <div>
+                                <h2 class="text-base sm:text-lg font-bold text-gray-900" id="section1Title">Shaxsiy ma'lumotlar</h2>
+                                <p class="text-xs text-gray-400" id="section1Sub">O'zingiz haqingizda asosiy ma'lumotlar</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <!-- F.I.Sh -->
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-bold text-gray-700 mb-1.5" id="labelFish">
+                                    Familiya, Ism, Sharifingiz (F.I.Sh.) <span class="text-red-500">*</span>
+                                </label>
+                                <input id="formFish" type="text" required oninput="updateFormProgress()" placeholder="Masalan: Kamalova Zarina Nasirovna" class="w-full px-4 py-3 bg-gray-50/80 border border-gray-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all">
+                            </div>
+
+                            <!-- Sinf -->
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1.5" id="labelSinf">
+                                    Sinfingiz <span class="text-red-500">*</span>
+                                </label>
+                                <select id="formSinf" required onchange="onClassSelected(this.value)" class="w-full px-3.5 py-3 bg-gray-50/80 border border-gray-200 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all font-medium">
+                                    <option value="">Sinfingizni tanlang...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Grade Category Tabs (Visual Indicator & Manual Switcher) -->
+                        <div class="pt-3 border-t border-slate-100">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <label class="block text-xs font-bold text-slate-700" id="lblTestCategory">
+                                    Diagnostika va so'rovnoma yo'nalishi:
+                                </label>
+                                <span class="text-[11px] text-emerald-700 font-semibold" id="lblAutoDetected">Sinfga qarab avtomatik moslanadi</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+                                <button type="button" onclick="selectGradeTab('5-6')" id="tab_5-6" class="p-3 rounded-2xl border-2 text-left transition-all border-emerald-500 bg-emerald-50/60 shadow-sm flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-600 text-white">5–6-sinf</span>
+                                        <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900 leading-tight">Qiziqish va kelajak kasbi</span>
+                                    <span class="text-[10px] text-slate-500 mt-1">15 ta keng qamrovli savol</span>
+                                </button>
+
+                                <button type="button" onclick="selectGradeTab('7')" id="tab_7" class="p-3 rounded-2xl border-2 text-left transition-all border-slate-200 bg-white hover:border-slate-300 flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-blue-600 text-white">7-sinf</span>
+                                        <i data-lucide="users" class="w-4 h-4 text-blue-600"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900 leading-tight">Tashkilotchilik qobiliyati</span>
+                                    <span class="text-[10px] text-slate-500 mt-1">20 ta savol & ball hisobi</span>
+                                </button>
+
+                                <button type="button" onclick="selectGradeTab('8')" id="tab_8" class="p-3 rounded-2xl border-2 text-left transition-all border-slate-200 bg-white hover:border-slate-300 flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-purple-600 text-white">8-sinf</span>
+                                        <i data-lucide="compass" class="w-4 h-4 text-purple-600"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900 leading-tight">Qobiliyat va intilishlar</span>
+                                    <span class="text-[10px] text-slate-500 mt-1">45 ta savol & 9 ta shkala</span>
+                                </button>
+
+                                <button type="button" onclick="selectGradeTab('9')" id="tab_9" class="p-3 rounded-2xl border-2 text-left transition-all border-slate-200 bg-white hover:border-slate-300 flex flex-col justify-between">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-amber-600 text-white">9-sinf</span>
+                                        <i data-lucide="map" class="w-4 h-4 text-amber-600"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-900 leading-tight">Qiziqishlar xaritasi</span>
+                                    <span class="text-[10px] text-slate-500 mt-1">50 ta savol & 10 kasbiy soha</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DYNAMIC QUESTIONS CONTAINER -->
+                    <div id="dynamicQuestionsContainer" class="space-y-4">
+                        <div class="p-12 text-center text-slate-400 bg-white rounded-3xl border border-slate-200/80">
+                            <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-emerald-600 mb-2"></i>
+                            <p class="text-sm font-semibold">Savollar yuklanmoqda...</p>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button Card -->
+                    <div class="glass-card bg-white rounded-3xl p-6 border border-emerald-500/20 shadow-md">
+                        <button type="submit" id="submitBtn" class="w-full py-4 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-xl shadow-emerald-600/25 transition-all duration-200 flex items-center justify-center space-x-2.5 hover:scale-[1.01] active:scale-[0.99]">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            <span id="submitBtnText">So'rovnomani yuborish</span>
+                        </button>
+                        <p class="text-center text-[11px] text-gray-400 mt-2.5" id="submitDisclaimer">
+                            Tugmani bosish orqali ma'lumotlaringiz maktab tahliliy tizimiga qabul qilinadi
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Celebration Success Screen (Hidden by default, 1-to-1 match) -->
+            <div id="successCard" class="hidden glass-card bg-white rounded-3xl shadow-2xl border border-emerald-500/20 p-8 sm:p-12 text-center animate-fade-in my-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl flex items-center justify-center mx-auto mb-6 text-emerald-600 shadow-inner">
+                    <i data-lucide="check-check" class="w-10 h-10"></i>
+                </div>
+                
+                <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-3" id="successBadge">
+                    Qabul qilindi!
+                </span>
+
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2" id="successTitle">
+                    Rahmat! Javoblaringiz muvaffaqiyatli saqlandi!
+                </h2>
+                
+                <p class="text-gray-600 text-sm max-w-md mx-auto mb-6" id="successDesc">
+                    Sizning qiziqishlaringiz va takliflaringiz maktab ma'muriyati hamda to'garak rahbarlari tomonidan albatta inobatga olinadi.
+                </p>
+
+                <!-- Fingerprint Box -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5 max-w-sm mx-auto mb-6 shadow-sm">
+                    <span class="text-xs text-gray-500 block mb-1" id="lblFpText">Sizning unikal ishtirokchi kodingiz (Fingerprint):</span>
+                    <span id="successFingerprint" class="font-mono text-2xl font-black text-emerald-800 tracking-wider">FP000000</span>
+                    <span class="text-[10px] text-gray-400 block mt-1" id="lblFpHint">Ushbu kod sizning anketangizni tasdiqlaydi</span>
+                </div>
+
+                <!-- Diagnostic Results Feedback Box -->
+                <div id="diagnosticFeedbackBox" class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-6 max-w-lg mx-auto mb-8 text-left space-y-3">
+                    <div class="flex items-center space-x-2 text-emerald-800 font-extrabold text-sm">
+                        <i data-lucide="award" class="w-5 h-5 text-emerald-600"></i>
+                        <span id="feedbackBoxTitle">Diagnostika natijasi:</span>
+                    </div>
+                    <div id="feedbackScoreRow" class="hidden flex items-center justify-between text-xs font-bold text-emerald-950 bg-white/80 p-3 rounded-xl border border-emerald-200">
+                        <span id="feedbackScoreLabel">Hisoblangan ball:</span>
+                        <span id="feedbackScoreVal" class="text-emerald-700 text-sm font-extrabold font-mono"></span>
+                    </div>
+                    <div id="feedbackTopScales" class="hidden space-y-1.5">
+                        <span class="text-xs font-bold text-slate-700 block" id="feedbackTopLabel">Yetakchi soha va qobiliyatlar:</span>
+                        <div id="feedbackTopList" class="space-y-1"></div>
+                    </div>
+                    <p id="feedbackDesc" class="text-xs text-slate-700 leading-relaxed"></p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <button onclick="resetSurveyForm()" class="w-full sm:w-auto px-7 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-emerald-200 flex items-center justify-center space-x-2">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span id="btnNewSurvey">Yana so'rovnoma to'ldirish</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer (1-to-1 match) -->
+    <footer class="bg-white/80 border-t border-slate-200/80 py-5 text-center text-xs text-slate-500 mt-auto backdrop-blur-md no-print">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div>
+                <span class="font-bold text-slate-700">35-sonli Umumta'lim Maktabi</span> &bull; 
+                <span class="text-emerald-700 font-medium">Barcha huquqlar himoyalangan &copy; 2026</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button type="button" onclick="openQrModal()" class="text-slate-500 hover:text-emerald-600 flex items-center gap-1 transition-all" title="QR-kodni ko'rish">
+                    <i data-lucide="qr-code" class="w-3.5 h-3.5"></i>
+                    <span>QR-kod</span>
+                </button>
+                <a href="/admin" class="text-slate-400 hover:text-emerald-600 flex items-center gap-1 opacity-50 hover:opacity-100 transition-all" title="Admin panelga kirish">
+                    <i data-lucide="lock" class="w-3 h-3"></i>
+                    <span>Admin</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code & Link Modal (1-to-1 match) -->
+    <div id="qrModal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 relative transform transition-all">
+            <button onclick="closeQrModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-center">
+                <div class="inline-flex p-3.5 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-600 text-white mb-3 shadow-lg shadow-emerald-500/25">
+                    <i data-lucide="qr-code" class="w-7 h-7"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1" id="qrModalTitle">35-Maktab So'rovnomasi Havolasi</h3>
+                <p class="text-xs text-slate-500 mb-4" id="qrModalDesc">O'quvchilar ushbu havola yoki QR-kod orqali to'g'ridan-to'g'ri anketani to'ldirishlari mumkin.</p>
+                
+                <div class="flex justify-center p-4 bg-slate-50 border border-slate-200/80 rounded-2xl mb-4">
+                    <img id="qrCodeImage" src="/api/qr" alt="QR Code" class="w-48 h-48 rounded-xl shadow-sm">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-slate-700 text-left mb-1.5" id="qrInputLabel">O'quvchilarga yuboriladigan havola:</label>
+                    <div class="flex">
+                        <input id="surveyUrlInput" type="text" readonly class="flex-1 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-l-xl text-xs text-slate-700 font-mono select-all focus:outline-none">
+                        <button onclick="copySurveyLink()" id="copyBtn" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-r-xl transition-all flex items-center space-x-1 shadow-sm">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span id="copyBtnText">Nusxa</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex gap-2">
+                    <a href="/" target="_blank" class="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-xs transition-all text-center" id="qrOpenBtn">
+                        So'rovnomani ochish
+                    </a>
+                    <button onclick="closeQrModal()" class="flex-1 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl text-xs transition-all" id="qrCloseBtn">
+                        Yopish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification (1-to-1 match) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform transition-all duration-300 translate-y-20 opacity-0 pointer-events-none">
+        <div id="toastContent" class="flex items-center space-x-3 px-5 py-3.5 rounded-2xl shadow-xl text-xs font-bold text-white bg-slate-900 border border-white/10">
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC (1-TO-1 ADAPTED FOR TELEGRAM DESKTOP QUESTIONNAIRES) -->
+    <script>
+        const SCHOOL_CLASSES = [
+            { labelUz: "5-sinflar", labelRu: "5-классы", items: ["5-A", "5-B", "5-V", "5-G", "5-D", "5-Ye", "5-O", "5-I", "5-sinf (umumiy)"] },
+            { labelUz: "6-sinflar", labelRu: "6-классы", items: ["6-A", "6-B", "6-V", "6-G", "6-D", "6-Ye", "6-O", "6-I", "6-sinf (umumiy)"] },
+            { labelUz: "7-sinflar", labelRu: "7-классы", items: ["7-A", "7-B", "7-V", "7-G", "7-D", "7-Ye", "7-O", "7-I", "7-sinf (umumiy)"] },
+            { labelUz: "8-sinflar", labelRu: "8-классы", items: ["8-A", "8-B", "8-V", "8-G", "8-D", "8-Ye", "8-J", "8-Yo", "8-I", "8-sinf (umumiy)"] },
+            { labelUz: "9-sinflar", labelRu: "9-классы", items: ["9-A", "9-B", "9-V", "9-G", "9-I", "9-O", "9-Y", "9-Ye", "9-sinf (umumiy)"] },
+            { labelUz: "10-sinflar", labelRu: "10-классы", items: ["10-A", "10-B", "10-V", "10-G", "10-D", "10-Ye", "10-I", "10-sinf (umumiy)"] },
+            { labelUz: "11-sinflar", labelRu: "11-классы", items: ["11-A", "11-B", "11-V", "11-G", "11-I", "11-D", "11-sinf (umumiy)"] }
+        ];
+
+        let currentLang = 'uz';
+        let currentGrade = '5-6';
+        let currentSurvey = null;
+        let userAnswers = {};
+        let surveyCache = {};
+
+        const UI_TEXT = {
+            uz: {
+                langBarTitle: "So'rovnoma tili / Язык анкеты:",
+                langBarSub: "O'zingizga qulay tilni tanlang",
+                headerTag: "2026-o'quv yili",
+                formMainTitle: "O'quvchilarning qiziqish va iqtidorini aniqlash so'rovnomasi",
+                formMainSubtitle: "Hurmatli o'quvchi! Ushbu so'rovnoma sizning qiziqishlaringiz va kelajakdagi maqsadlaringizni aniqlash hamda yangi qiziqarli to'garaklar tashkil etish uchun xizmat qiladi.",
+                duration: "Davomiyligi: ~2-3 daqiqa",
+                privacyBadge: "Xavfsiz & Rasmiy",
+                progressLabel: "To'ldirish ko'rsatkichi:",
+                section1Title: "Shaxsiy ma'lumotlar",
+                section1Sub: "O'zingiz haqingizda asosiy ma'lumotlar",
+                labelFish: "Familiya, Ism, Sharifingiz (F.I.Sh.)",
+                labelSinf: "Sinfingiz",
+                selectSinfPrompt: "Sinfingizni tanlang...",
+                lblTestCategory: "Diagnostika va so'rovnoma yo'nalishi:",
+                lblAutoDetected: "Sinfga qarab avtomatik moslanadi",
+                step2Title: "2-Qadam: Test savollari",
+                submitBtn: "So'rovnomani yuborish",
+                submitSub: "Tugmani bosish orqali ma'lumotlaringiz maktab tahliliy tizimiga qabul qilinadi",
+                successBadge: "Qabul qilindi!",
+                successTitle: "Rahmat! Javoblaringiz muvaffaqiyatli saqlandi!",
+                successDesc: "Sizning qiziqishlaringiz va takliflaringiz maktab ma'muriyati hamda to'garak rahbarlari tomonidan albatta inobatga olinadi.",
+                lblFpText: "Sizning unikal ishtirokchi kodingiz (Fingerprint):",
+                lblFpHint: "Ushbu kod sizning anketangizni tasdiqlaydi",
+                feedbackBoxTitle: "Diagnostika natijasi:",
+                feedbackScoreLabel: "Hisoblangan ball:",
+                feedbackTopLabel: "Yetakchi soha va qobiliyatlar:",
+                btnNewSurvey: "Yana so'rovnoma to'ldirish",
+                ha: "Ha",
+                yoq: "Yo'q",
+                bazan: "Ba'zan",
+                qidirish: "Yuklanmoqda..."
+            },
+            ru: {
+                langBarTitle: "Язык анкеты / So'rovnoma tili:",
+                langBarSub: "Выберите удобный для вас язык",
+                headerTag: "2026 учебный год",
+                formMainTitle: "Опрос и диагностика интересов и способностей учащихся",
+                formMainSubtitle: "Уважаемый ученик! Данный опрос направлен на определение ваших способностей, интересов и карьерных устремлений, а также организацию новых школьных кружков.",
+                duration: "Продолжительность: ~2-3 минуты",
+                privacyBadge: "Безопасно и официально",
+                progressLabel: "Индикатор заполнения:",
+                section1Title: "Личные данные",
+                section1Sub: "Основная информация об учащемся",
+                labelFish: "Фамилия, Имя, Отчество (Ф.И.О.)",
+                labelSinf: "Ваш класс",
+                selectSinfPrompt: "Выберите класс...",
+                lblTestCategory: "Направление диагностики и опросника:",
+                lblAutoDetected: "Подбирается автоматически по классу",
+                step2Title: "Шаг 2: Вопросы теста",
+                submitBtn: "Отправить анкету",
+                submitSub: "После отправки данные поступят в аналитическую систему школы",
+                successBadge: "Принято!",
+                successTitle: "Спасибо! Ваши ответы приняты!",
+                successDesc: "Ваша анкета успешно сохранена и добавлена в аналитическую базу данных школы.",
+                lblFpText: "Ваш уникальный код участника (Fingerprint):",
+                lblFpHint: "Этот код подтверждает заполнение анкеты",
+                feedbackBoxTitle: "Результат диагностики:",
+                feedbackScoreLabel: "Набранный балл:",
+                feedbackTopLabel: "Ведущие сферы и способности:",
+                btnNewSurvey: "Заполнить анкету снова",
+                ha: "Да",
+                yoq: "Нет",
+                bazan: "Иногда",
+                qidirish: "Загрузка..."
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = window.location.origin + '/';
+            const urlInput = document.getElementById('surveyUrlInput');
+            if (urlInput) urlInput.value = currentUrl;
+
+            setLanguage('uz');
+            loadSurvey(currentGrade);
+        });
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const uzBtn = document.getElementById('langUzBtn');
+            const ruBtn = document.getElementById('langRuBtn');
+
+            if (lang === 'uz') {
+                uzBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white shadow-sm';
+                ruBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-600 hover:text-gray-900';
+            } else {
+                ruBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white shadow-sm';
+                uzBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-gray-600 hover:text-gray-900';
+            }
+
+            const t = UI_TEXT[lang];
+            document.getElementById('langBarTitle').textContent = t.langBarTitle;
+            document.getElementById('langBarSub').textContent = t.langBarSub;
+            document.getElementById('headerTag').textContent = t.headerTag;
+            document.getElementById('formMainTitle').textContent = t.formMainTitle;
+            document.getElementById('formMainSubtitle').textContent = t.formMainSubtitle;
+            document.getElementById('txtDuration').textContent = t.duration;
+            document.getElementById('txtPrivacyBadge').textContent = t.privacyBadge;
+            document.getElementById('progressLabel').textContent = t.progressLabel;
+            document.getElementById('section1Title').textContent = t.section1Title;
+            document.getElementById('section1Sub').textContent = t.section1Sub;
+            document.getElementById('labelFish').innerHTML = `${t.labelFish} <span class="text-red-500">*</span>`;
+            document.getElementById('labelSinf').innerHTML = `${t.labelSinf} <span class="text-red-500">*</span>`;
+            document.getElementById('lblTestCategory').textContent = t.lblTestCategory;
+            document.getElementById('lblAutoDetected').textContent = t.lblAutoDetected;
+            document.getElementById('submitBtnText').textContent = t.submitBtn;
+            document.getElementById('submitDisclaimer').textContent = t.submitSub;
+            document.getElementById('successBadge').textContent = t.successBadge;
+            document.getElementById('successTitle').textContent = t.successTitle;
+            document.getElementById('successDesc').textContent = t.successDesc;
+            document.getElementById('lblFpText').textContent = t.lblFpText;
+            document.getElementById('lblFpHint').textContent = t.lblFpHint;
+            document.getElementById('feedbackBoxTitle').textContent = t.feedbackBoxTitle;
+            document.getElementById('feedbackScoreLabel').textContent = t.feedbackScoreLabel;
+            document.getElementById('feedbackTopLabel').textContent = t.feedbackTopLabel;
+            document.getElementById('btnNewSurvey').textContent = t.btnNewSurvey;
+
+            // Populate Sinf dropdown
+            const sinfSelect = document.getElementById('formSinf');
+            const prevVal = sinfSelect.value;
+            let optionsHtml = `<option value="">${t.selectSinfPrompt}</option>`;
+            SCHOOL_CLASSES.forEach(group => {
+                const grpLabel = lang === 'ru' ? group.labelRu : group.labelUz;
+                optionsHtml += `<optgroup label="${grpLabel}">`;
+                group.items.forEach(c => {
+                    optionsHtml += `<option value="${c}">${c}</option>`;
+                });
+                optionsHtml += `</optgroup>`;
+            });
+            sinfSelect.innerHTML = optionsHtml;
+            if (prevVal) sinfSelect.value = prevVal;
+
+            renderQuestions();
+        }
+
+        function onClassSelected(val) {
+            updateFormProgress();
+            if (!val) return;
+            const clean = val.replace('-sinf', '').replace('-klass', '').replace(' (umumiy)', '').trim();
+            const gradeNum = clean.split('-')[0].trim();
+
+            if (gradeNum === '5' || gradeNum === '6') {
+                selectGradeTab('5-6');
+            } else if (gradeNum === '7') {
+                selectGradeTab('7');
+            } else if (gradeNum === '8') {
+                selectGradeTab('8');
+            } else if (gradeNum === '9' || gradeNum === '10' || gradeNum === '11') {
+                selectGradeTab('9');
+            }
+        }
+
+        function selectGradeTab(grade) {
+            currentGrade = grade;
+            ['5-6', '7', '8', '9'].forEach(g => {
+                const btn = document.getElementById(`tab_${g}`);
+                if (!btn) return;
+                if (g === grade) {
+                    btn.className = 'p-3 rounded-2xl border-2 text-left transition-all border-emerald-500 bg-emerald-50/60 shadow-sm flex flex-col justify-between';
+                } else {
+                    btn.className = 'p-3 rounded-2xl border-2 text-left transition-all border-slate-200 bg-white hover:border-slate-300 flex flex-col justify-between';
+                }
+            });
+            loadSurvey(grade);
+        }
+
+        async function loadSurvey(grade) {
+            if (surveyCache[grade]) {
+                currentSurvey = surveyCache[grade];
+                userAnswers = {};
+                renderQuestions();
+                return;
+            }
+
+            const container = document.getElementById('dynamicQuestionsContainer');
+            container.innerHTML = `
+                <div class="p-12 text-center text-slate-400 bg-white rounded-3xl border border-slate-200/80">
+                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-emerald-600 mb-2"></i>
+                    <p class="text-sm font-semibold">${UI_TEXT[currentLang].qidirish}</p>
+                </div>
+            `;
+            lucide.createIcons();
+
+            try {
+                const res = await fetch(`/api/surveys/${grade}`);
+                const data = await res.json();
+                if (data.status === 'success') {
+                    surveyCache[grade] = data.data;
+                    currentSurvey = data.data;
+                    userAnswers = {};
+                    renderQuestions();
+                } else {
+                    container.innerHTML = `<div class="p-6 text-center text-rose-600 bg-rose-50 rounded-2xl font-bold">${data.message}</div>`;
+                }
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = `<div class="p-6 text-center text-rose-600 bg-rose-50 rounded-2xl font-bold">Xatolik yuz berdi</div>`;
+            }
+        }
+
+        function renderQuestions() {
+            if (!currentSurvey) return;
+            const container = document.getElementById('dynamicQuestionsContainer');
+            const t = UI_TEXT[currentLang];
+
+            const title = currentLang === 'ru' ? (currentSurvey.title_ru || currentSurvey.title_uz) : currentSurvey.title_uz;
+            const instruction = currentLang === 'ru' ? (currentSurvey.instruction_ru || currentSurvey.instruction_uz) : currentSurvey.instruction_uz;
+
+            let html = `
+                <div class="glass-card bg-white rounded-3xl p-6 sm:p-8 border border-emerald-900/10 shadow-sm space-y-2">
+                    <div class="flex items-center space-x-2 text-emerald-700 font-extrabold text-sm uppercase tracking-wider">
+                        <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                        <span>${t.step2Title}</span>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-tight">${title}</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${instruction}</p>
+                </div>
+            `;
+
+            if (currentGrade === '5-6') {
+                html += render56Questions(currentSurvey.questions);
+            } else if (currentGrade === '7') {
+                html += render7Questions(currentSurvey.questions);
+            } else if (currentGrade === '8') {
+                html += render8Questions(currentSurvey.questions);
+            } else if (currentGrade === '9') {
+                html += render9Questions(currentSurvey.questions);
+            }
+
+            container.innerHTML = html;
+            lucide.createIcons();
+            updateFormProgress();
+        }
+
+        // 5-6 GRADE RENDERER (15 QUESTIONS)
+        function render56Questions(questions) {
+            return questions.map(q => {
+                const qTitle = currentLang === 'ru' ? q.question_ru : q.question_uz;
+                const options = currentLang === 'ru' ? (q.options_ru || q.options_uz) : q.options_uz;
+
+                let body = '';
+                if (q.type === 'checkbox') {
+                    body = `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 pt-2">
+                            ${options.map(opt => `
+                                <label class="choice-tile p-3 rounded-2xl flex items-center space-x-3 text-xs font-medium text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-emerald-50/50 hover:border-emerald-300 cursor-pointer select-none transition-all">
+                                    <input type="checkbox" name="q_${q.id}" value="${opt}" onchange="onCheckboxChange(${q.id}, '${opt}', this.checked)" class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                                    <span class="leading-snug">${opt}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    `;
+                } else if (q.type === 'radio') {
+                    body = `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 pt-2">
+                            ${options.map(opt => `
+                                <label class="choice-tile p-3 rounded-2xl flex items-center space-x-3 text-xs font-medium text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-emerald-50/50 hover:border-emerald-300 cursor-pointer select-none transition-all">
+                                    <input type="radio" name="q_${q.id}" value="${opt}" onchange="onRadioChange(${q.id}, '${opt}')" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                                    <span class="leading-snug">${opt}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    `;
+                } else if (q.type === 'text3') {
+                    const placeholders = currentLang === 'ru' ? q.placeholders_ru : q.placeholders_uz;
+                    body = `
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <input type="text" id="q_${q.id}_1" oninput="onTextInput(${q.id}, '1', this.value)" placeholder="${placeholders[0]}" class="px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="q_${q.id}_2" oninput="onTextInput(${q.id}, '2', this.value)" placeholder="${placeholders[1]}" class="px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="q_${q.id}_3" oninput="onTextInput(${q.id}, '3', this.value)" placeholder="${placeholders[2]}" class="px-4 py-3 bg-slate-50/80 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none">
+                        </div>
+                    `;
+                } else if (q.type === 'radio_with_input') {
+                    body = `
+                        <div class="space-y-3 pt-2">
+                            <div class="flex flex-wrap gap-2.5">
+                                ${options.map(opt => `
+                                    <label class="choice-tile px-4 py-2.5 rounded-2xl flex items-center space-x-2.5 text-xs font-medium text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-emerald-50/50 hover:border-emerald-300 cursor-pointer select-none transition-all">
+                                        <input type="radio" name="q_${q.id}" value="${opt}" onchange="onRadioChange(${q.id}, '${opt}')" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                                        <span>${opt}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                            <input type="text" id="q_${q.id}_sub" oninput="onTextInput(${q.id}, 'sub', this.value)" placeholder="${currentLang === 'ru' ? q.sub_prompt_ru : q.sub_prompt_uz}" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none">
+                        </div>
+                    `;
+                } else {
+                    const ph = currentLang === 'ru' ? (q.placeholder_ru || '') : (q.placeholder_uz || '');
+                    body = `
+                        <div class="pt-2">
+                            <textarea id="q_${q.id}" oninput="onTextInput(${q.id}, 'val', this.value)" rows="2" placeholder="${ph}" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:ring-2 focus:ring-emerald-500 outline-none"></textarea>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="glass-card bg-white rounded-3xl p-5 sm:p-7 border border-emerald-900/10 shadow-sm space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <span class="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-800 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5">${q.id}</span>
+                            <h4 class="text-sm sm:text-base font-bold text-slate-900 leading-snug">${qTitle}</h4>
+                        </div>
+                        ${body}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 7-GRADE RENDERER (20 QUESTIONS)
+        function render7Questions(questions) {
+            return questions.map(q => {
+                const qTitle = currentLang === 'ru' ? q.question_ru : q.question_uz;
+                const options = currentLang === 'ru' ? q.options_ru : q.options_uz;
+
+                return `
+                    <div class="glass-card bg-white rounded-3xl p-5 sm:p-7 border border-blue-900/10 shadow-sm space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <span class="w-7 h-7 rounded-xl bg-blue-100 text-blue-800 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5">${q.id}</span>
+                            <h4 class="text-sm sm:text-base font-bold text-slate-900 leading-snug">${qTitle}</h4>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 sm:gap-3 pt-1">
+                            ${options.map(opt => `
+                                <label class="choice-tile p-3 rounded-2xl flex items-center justify-center space-x-2 text-xs sm:text-sm font-bold text-slate-700 text-center border border-slate-200/90 bg-slate-50/60 hover:bg-blue-50/50 hover:border-blue-300 cursor-pointer select-none transition-all">
+                                    <input type="radio" name="q_${q.id}" value="${opt.val}" onchange="onRadioChange(${q.id}, '${opt.val}')" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                    <span>${opt.text}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 8-GRADE RENDERER (45 QUESTIONS ACROSS 9 SPHERES)
+        function render8Questions(questions) {
+            let lastSection = '';
+            return questions.map(q => {
+                const qTitle = currentLang === 'ru' ? q.question_ru : q.question_uz;
+                const secTitle = currentLang === 'ru' ? q.section_ru : q.section_uz;
+                let secHeader = '';
+                if (secTitle !== lastSection) {
+                    lastSection = secTitle;
+                    secHeader = `
+                        <div class="p-3.5 sm:p-4 rounded-2xl bg-purple-50/90 border border-purple-200 text-purple-900 font-extrabold text-xs uppercase tracking-wide flex items-center gap-2 mt-4 shadow-sm">
+                            <i data-lucide="layers" class="w-4 h-4 text-purple-700"></i>
+                            <span>${secTitle}</span>
+                        </div>
+                    `;
+                }
+
+                return `
+                    ${secHeader}
+                    <div class="glass-card bg-white rounded-3xl p-4 sm:p-5 border border-purple-900/10 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-start space-x-3 flex-grow">
+                            <span class="w-6 h-6 rounded-lg bg-purple-100 text-purple-800 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5">${q.id}</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">${qTitle}</h4>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0 self-end sm:self-center">
+                            <label class="choice-tile px-4 py-2 rounded-xl flex items-center space-x-1.5 text-xs font-bold text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-emerald-50/60 hover:border-emerald-300 cursor-pointer select-none transition-all">
+                                <input type="radio" name="q_${q.id}" value="ha" onchange="onRadioChange(${q.id}, 'ha')" class="w-4 h-4 text-emerald-600">
+                                <span>${UI_TEXT[currentLang].ha}</span>
+                            </label>
+                            <label class="choice-tile px-4 py-2 rounded-xl flex items-center space-x-1.5 text-xs font-bold text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-rose-50/60 hover:border-rose-300 cursor-pointer select-none transition-all">
+                                <input type="radio" name="q_${q.id}" value="yoq" onchange="onRadioChange(${q.id}, 'yoq')" class="w-4 h-4 text-rose-600">
+                                <span>${UI_TEXT[currentLang].yoq}</span>
+                            </label>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 9-GRADE RENDERER (50 QUESTIONS ACROSS 10 SPHERES)
+        function render9Questions(questions) {
+            return questions.map(q => {
+                const qTitle = currentLang === 'ru' ? q.question_ru : q.question_uz;
+                return `
+                    <div class="glass-card bg-white rounded-3xl p-4 sm:p-5 border border-amber-900/10 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-start space-x-3 flex-grow">
+                            <span class="w-6 h-6 rounded-lg bg-amber-100 text-amber-800 text-xs font-black flex items-center justify-center flex-shrink-0 mt-0.5">${q.id}</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">${qTitle}</h4>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0 self-end sm:self-center">
+                            <label class="choice-tile px-4 py-2 rounded-xl flex items-center space-x-1.5 text-xs font-bold text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-emerald-50/60 hover:border-emerald-300 cursor-pointer select-none transition-all">
+                                <input type="radio" name="q_${q.id}" value="ha" onchange="onRadioChange(${q.id}, 'ha')" class="w-4 h-4 text-emerald-600">
+                                <span>${UI_TEXT[currentLang].ha}</span>
+                            </label>
+                            <label class="choice-tile px-4 py-2 rounded-xl flex items-center space-x-1.5 text-xs font-bold text-slate-700 border border-slate-200/90 bg-slate-50/60 hover:bg-rose-50/60 hover:border-rose-300 cursor-pointer select-none transition-all">
+                                <input type="radio" name="q_${q.id}" value="yoq" onchange="onRadioChange(${q.id}, 'yoq')" class="w-4 h-4 text-rose-600">
+                                <span>${UI_TEXT[currentLang].yoq}</span>
+                            </label>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // EVENT HANDLERS
+        function onRadioChange(qId, val) {
+            userAnswers[`q_${qId}`] = val;
+            updateFormProgress();
+        }
+
+        function onCheckboxChange(qId, val, checked) {
+            if (!userAnswers[`q_${qId}`]) userAnswers[`q_${qId}`] = [];
+            if (checked) {
+                if (!userAnswers[`q_${qId}`].includes(val)) userAnswers[`q_${qId}`].push(val);
+            } else {
+                userAnswers[`q_${qId}`] = userAnswers[`q_${qId}`].filter(x => x !== val);
+            }
+            updateFormProgress();
+        }
+
+        function onTextInput(qId, subKey, val) {
+            if (subKey === 'val') {
+                userAnswers[`q_${qId}`] = val;
+            } else {
+                userAnswers[`q_${qId}_${subKey}`] = val;
+            }
+            updateFormProgress();
+        }
+
+        function updateFormProgress() {
+            const fish = document.getElementById('formFish')?.value.trim() || '';
+            const sinf = document.getElementById('formSinf')?.value.trim() || '';
+
+            let score = 0;
+            if (fish.length >= 3) score += 15;
+            if (sinf) score += 15;
+
+            if (currentSurvey && currentSurvey.questions) {
+                const totalQ = currentSurvey.questions.length;
+                let answered = 0;
+                for (let i = 1; i <= totalQ; i++) {
+                    const ans = userAnswers[`q_${i}`];
+                    if (ans && (typeof ans === 'string' ? ans.trim().length > 0 : ans.length > 0)) {
+                        answered++;
+                    } else if (userAnswers[`q_${i}_1`]) {
+                        answered++;
+                    }
+                }
+                const qScore = totalQ > 0 ? (answered / totalQ) * 70 : 0;
+                score += qScore;
+            }
+
+            score = Math.min(100, Math.round(score));
+            const bar = document.getElementById('surveyProgressBar');
+            const txt = document.getElementById('progressPercent');
+            if (bar) bar.style.width = score + '%';
+            if (txt) txt.textContent = score + '%';
+        }
+
+        async function submitSurvey(e) {
+            e.preventDefault();
+
+            const fish = document.getElementById('formFish').value.trim();
+            const sinf = document.getElementById('formSinf').value.trim();
+
+            if (!fish) {
+                showToast(currentLang === 'ru' ? "Пожалуйста, укажите Ф.И.О." : "Iltimos, F.I.Sh. kiriting!", "error");
+                document.getElementById('formFish').focus();
+                return;
+            }
+            if (!sinf) {
+                showToast(currentLang === 'ru' ? "Пожалуйста, выберите ваш класс" : "Iltimos, sinfingizni tanlang!", "error");
+                document.getElementById('formSinf').focus();
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            const origHtml = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> <span>${currentLang === 'ru' ? 'Отправка...' : 'Yuborilmoqda...'}</span>`;
+            lucide.createIcons();
+
+            try {
+                const payload = {
+                    fish: fish,
+                    sinf: sinf,
+                    sinf_group: currentGrade,
+                    test_type: `survey_${currentGrade.replace('-', '_')}`,
+                    til: currentLang,
+                    answers: userAnswers
+                };
+
+                const res = await fetch('/api/entries', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await res.json();
+                if (result.status === 'success') {
+                    document.getElementById('surveyFormCard').classList.add('hidden');
+                    
+                    const fp = result.data?.fingerprint || result.fingerprint || 'FP' + Math.floor(100000 + Math.random() * 900000);
+                    document.getElementById('successFingerprint').textContent = fp;
+
+                    const fb = result.feedback || result.data?.feedback || {};
+                    const scoreRow = document.getElementById('feedbackScoreRow');
+                    const topScales = document.getElementById('feedbackTopScales');
+                    const descEl = document.getElementById('feedbackDesc');
+
+                    if (fb.score !== undefined && fb.max_score) {
+                        scoreRow.classList.remove('hidden');
+                        document.getElementById('feedbackScoreVal').textContent = `${fb.score} / ${fb.max_score} (${fb.level || ''})`;
+                    } else {
+                        scoreRow.classList.add('hidden');
+                    }
+
+                    if (fb.top_scales && fb.top_scales.length > 0) {
+                        topScales.classList.remove('hidden');
+                        document.getElementById('feedbackTopList').innerHTML = fb.top_scales.map(s => `
+                            <div class="px-3 py-1.5 bg-white border border-emerald-200 rounded-xl text-xs font-bold text-emerald-900 flex items-center justify-between">
+                                <span>${s}</span>
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-emerald-600 fill-emerald-600"></i>
+                            </div>
+                        `).join('');
+                    } else {
+                        topScales.classList.add('hidden');
+                    }
+
+                    descEl.textContent = fb.description || (currentLang === 'ru' ? "Ваши ответы успешно приняты и будут обработаны." : "Javoblaringiz muvaffaqiyatli qabul qilindi.");
+
+                    document.getElementById('successCard').classList.remove('hidden');
+                    lucide.createIcons();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    showToast(result.message || "Xatolik yuz berdi", "error");
+                    btn.disabled = false;
+                    btn.innerHTML = origHtml;
+                    lucide.createIcons();
+                }
+            } catch (err) {
+                console.error(err);
+                showToast("Server bilan bog'lanishda xatolik", "error");
+                btn.disabled = false;
+                btn.innerHTML = origHtml;
+                lucide.createIcons();
+            }
+        }
+
+        function resetSurveyForm() {
+            document.getElementById('publicSurveyForm').reset();
+            userAnswers = {};
+            document.getElementById('successCard').classList.add('hidden');
+            document.getElementById('surveyFormCard').classList.remove('hidden');
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = false;
+            btn.innerHTML = `<i data-lucide="send" class="w-5 h-5"></i> <span>${UI_TEXT[currentLang].submitBtn}</span>`;
+            lucide.createIcons();
+            updateFormProgress();
+            renderQuestions();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // QR CODE MODAL FUNCTIONS (1-to-1)
+        function openQrModal() {
+            document.getElementById('qrModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeQrModal() {
+            document.getElementById('qrModal').classList.add('hidden');
+        }
+
+        function copySurveyLink() {
+            const input = document.getElementById('surveyUrlInput');
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value).then(() => {
+                const btn = document.getElementById('copyBtnText');
+                const orig = btn.textContent;
+                btn.textContent = "Nusxalandi!";
+                showToast("Havola nusxalandi!", "success");
+                setTimeout(() => { btn.textContent = orig; }, 2000);
+            }).catch(() => {
+                showToast("Nusxa olishda xatolik", "error");
+            });
+        }
+
+        // TOAST NOTIFICATION (1-to-1)
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toastMessage');
+            const content = document.getElementById('toastContent');
+            if (!toast || !msg || !content) return;
+
+            msg.textContent = message;
+            if (type === 'error') {
+                content.className = 'flex items-center space-x-3 px-5 py-3.5 rounded-2xl shadow-xl text-xs font-bold text-white bg-rose-600 border border-rose-400';
+            } else if (type === 'success') {
+                content.className = 'flex items-center space-x-3 px-5 py-3.5 rounded-2xl shadow-xl text-xs font-bold text-white bg-emerald-700 border border-emerald-500';
+            } else {
+                content.className = 'flex items-center space-x-3 px-5 py-3.5 rounded-2xl shadow-xl text-xs font-bold text-white bg-slate-900 border border-white/10';
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

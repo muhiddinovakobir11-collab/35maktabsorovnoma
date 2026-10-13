@@ -1,0 +1,835 @@
+{
+  "grade": "7",
+  "title_uz": "Tashkilotchilik qobiliyatini aniqlash testi",
+  "title_ru": "Тест «Определение организаторских способностей»",
+  "instruction_uz": "Savollarni diqqat bilan o‘qing, uzoq o‘ylamasdan o‘zingizga mos bo‘lgan javobni tanlang va belgilang.",
+  "instruction_ru": "Внимательно прочитайте вопросы, выберите тот, который подходит вам больше всего, и отметьте его.",
+  "questions": [
+    {
+      "id": 1,
+      "question_uz": "O‘rtoqlaringiz har doim ham sizning fikringizga qo‘shilishadimi?",
+      "question_ru": "Ваши друзья с вами всегда согласны?",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question_uz": "Turli vaziyatlardan chiqish yo‘llarini topa olasizmi?",
+      "question_ru": "Можете ли вы найти выход из разных ситуаций?",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question_uz": "Sizga jamoatchilik ishlari bilan shug‘ullanish yoqadimi?",
+      "question_ru": "Вам нравится общественная работа?",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question_uz": "Agar maqsadlaringizni amalga oshirish yo‘lida qiyinchilikka duch kelsangiz ulardan voz kechasizmi?",
+      "question_ru": "Если у вас возникнут трудности с достижением ваших целей, откажетесь ли вы от них?",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question_uz": "Siz har xil o‘yin va xursandchilik tadbirlarini o‘ylab topishni va tashkil etishni yoqtirasizmi?",
+      "question_ru": "Вам нравится организовывать различные игры и веселые мероприятия?",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question_uz": "Siz ko‘p hollarda bugun bajarilishi kerak bo‘lgan ishlarni boshqa kunga ko‘chirasizmi:",
+      "question_ru": "Часто ли вы переносите работу, которую необходимо выполнить сегодня:",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question_uz": "Siz o‘rtoqlaringiz uchun turli qiziqarli tadbirlarni tashkil eta olasizmi:",
+      "question_ru": "Можете ли вы организовать различные веселые мероприятия для своих друзей:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question_uz": "Sizni o‘rtoqlaringiz bilan kelishmay qolishingiz ularning bergan va’dalarini bajarmasligi oqibatida bo‘lmasligi rostmi:",
+      "question_ru": "Правда ли, что ваше несогласие с друзьями не связано с тем, что они не выполняют своих обещаний:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question_uz": "Siz ko‘p hollarda topshiriqlarni bajarishda tashabbus ko‘rsatasizmi:",
+      "question_ru": "Вы часто проявляете инициативу при выполнении заданий:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question_uz": "Notanish vaziyatlarga yaxshi ko‘nikib ketmasligingiz rostmi:",
+      "question_ru": "Правда ли, что вы не привыкли к незнакомым ситуациям:",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "question_uz": "Boshlagan ishingizni tugata olmasangiz asabiylashasizmi:",
+      "question_ru": "Вы расстроены, если не можете закончить то, что начали?",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "question_uz": "O‘rtoqlaringiz bilan ko‘p muloqot sizni charchatib qo‘yishi rostmi:",
+      "question_ru": "Правда ли, что общение с друзьями может быть утомительным?",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "question_uz": "O‘rtoqlaringiz uchun ularga tegishli muammollarni yechishda ko‘pincha tashabbus ko‘rsatasizmi:",
+      "question_ru": "Вы часто проявляете инициативу для решения проблем своих друзей:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "question_uz": "O‘zingizni haqligingizni isbotlash siz uchun unchalik muhim emasmi:",
+      "question_ru": "Разве тебе не важно доказать, что ты прав?",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "question_uz": "Maktabdagi (sinfdagi) jamoat ishlarida qatnashasizmi:",
+      "question_ru": "Участвуете ли вы в школьных (классных) общественных работах:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "question_uz": "Agar do‘stlaringiz tomonidan Sizning fikringiz yoki qaroringiz qabul qilinmasa ularni himoya qilishga harakat qilmasligingiz rostmi:",
+      "question_ru": "Правда ли, что вы не пытаетесь защитить своих друзей, если они не согласны с вами?",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "question_uz": "O‘rtoqlaringiz uchun har xil tadbirlarni tashkil etish uchun chin dildan kirishasizmi:",
+      "question_ru": "Вы действительно хотите организовать различные мероприятия для своих друзей:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "question_uz": "Uchrashuvlarga siz ko‘pincha kechikasizmi:",
+      "question_ru": "Вы часто опаздываете на встречи:",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "question_uz": "Siz ko‘pincha hammaning diqqat markazida bo‘lasizmi:",
+      "question_ru": "Вы часто в центре внимания:",
+      "is_positive": true,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 0
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 1
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "question_uz": "Siz o‘zingizni notanish jamoada noqulay tutishingiz rostmi:",
+      "question_ru": "Правда ли, что вы чувствуете себя некомфортно в незнакомой среде:",
+      "is_positive": false,
+      "options_uz": [
+        {
+          "val": "ha",
+          "text": "Ha",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Ba’zan",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Yo‘q",
+          "pts": 1
+        }
+      ],
+      "options_ru": [
+        {
+          "val": "ha",
+          "text": "Да",
+          "pts": 0
+        },
+        {
+          "val": "bazan",
+          "text": "Иногда",
+          "pts": 0.5
+        },
+        {
+          "val": "yoq",
+          "text": "Нет",
+          "pts": 1
+        }
+      ]
+    }
+  ],
+  "evaluation": {
+    "high": {
+      "min": 15,
+      "max": 20,
+      "label_uz": "Yuqori daraja",
+      "label_ru": "Высокий уровень",
+      "desc_uz": "Yuqori darajadagi tashkilotchilik qobiliyatidan darak beradi. O'quvchi jamoani boshqara oladi, tashabbuskor va yetakchi.",
+      "desc_ru": "Свидетельствует о высоком уровне организаторских способностей. Умеет руководить, проявляет лидерство и инициативу."
+    },
+    "medium": {
+      "min": 13,
+      "max": 14.5,
+      "label_uz": "O‘rtacha daraja",
+      "label_ru": "Средний уровень",
+      "desc_uz": "Tashkilotchilik qobiliyatining o‘rtacha darajasi. Vaziyatga qarab jamoada faol ishtirok etadi va topshiriqlarni bajara oladi.",
+      "desc_ru": "Средний уровень организаторских способностей. Стремится к контактам, но потенциал требует дальнейшего развития."
+    },
+    "low": {
+      "min": 0,
+      "max": 12.5,
+      "label_uz": "Past daraja",
+      "label_ru": "Низкий уровень",
+      "desc_uz": "Tashkilotchilik qobiliyati pastroq. Yakkaxon yoki ijodiy-amaliy ishlarda o‘zini erkinroq his qiladi, jamoaviy yetakchilikni rivojlantirish tavsiya etiladi.",
+      "desc_ru": "Низкий уровень организаторских способностей. Предпочитает индивидуальную работу, требуется развитие навыков взаимодействия."
+    }
+  }
+}

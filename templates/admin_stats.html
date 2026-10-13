@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="space-y-6">
+
+    <!-- Header Banner -->
+    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-950 via-teal-950 to-emerald-950 text-white p-6 sm:p-8 shadow-xl border border-teal-500/20">
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1.5">
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                        <i data-lucide="pie-chart" class="w-3.5 h-3.5"></i>
+                        <span>TAHLIL VA GRAFIKA</span>
+                    </span>
+                    <span class="text-xs text-teal-200/80">35-Maktab</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Umumiy Diagnostika Statistikasi</h1>
+                <p class="text-teal-100/70 text-xs sm:text-sm">Maktab bo'yicha o'quvchilar qiziqishlari, sinflar qatnashishi va iqtidorlar tahlili</p>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <a href="/admin" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-extrabold text-xs rounded-xl backdrop-blur-md transition-all flex items-center gap-1.5">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Admin jadvaliga qaytish</span>
+                </a>
+                <button onclick="window.print()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    <span>Chop etish</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 block">Jami ishtirokchilar</span>
+            <span class="text-3xl font-black text-slate-900 mt-1 block">{{ stats.total }}</span>
+            <span class="text-[10px] font-bold text-emerald-600">Maktab bo'yicha</span>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 block">7-sinf Tashkilotchi</span>
+            <span class="text-3xl font-black text-blue-700 mt-1 block">{{ stats.by_group.get('7', 0) }}</span>
+            <span class="text-[10px] font-bold text-blue-600">Liderlik diagnostikasi</span>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 block">8-sinf 9 Shkala</span>
+            <span class="text-3xl font-black text-purple-700 mt-1 block">{{ stats.by_group.get('8', 0) }}</span>
+            <span class="text-[10px] font-bold text-purple-600">Qobiliyatlar profili</span>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 block">9-sinf Kasb xaritasi</span>
+            <span class="text-3xl font-black text-amber-700 mt-1 block">{{ stats.by_group.get('9', 0) }}</span>
+            <span class="text-[10px] font-bold text-amber-600">10 kasbiy yo'nalish</span>
+        </div>
+    </div>
+
+    <!-- Charts and Tables Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Sinf guruhlari qatnashishi -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h3 class="font-extrabold text-slate-900 text-sm flex items-center gap-2">
+                <i data-lucide="layers" class="w-4 h-4 text-emerald-600"></i>
+                <span>Sinf guruhlari bo'yicha ishtirokchilar</span>
+            </h3>
+
+            <div class="space-y-3">
+                {% for grp, cnt in stats.by_group.items() %}
+                {% set pct = (cnt / stats.total * 100) if stats.total > 0 else 0 %}
+                <div>
+                    <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+                        <span>{{ grp }}-sinflar</span>
+                        <span class="text-slate-500">{{ cnt }} nafar ({{ "%.1f"|format(pct) }}%)</span>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                        <div class="bg-emerald-600 h-full rounded-full" style="width: {{ pct }}%"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Sinflar kesimida jadval -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h3 class="font-extrabold text-slate-900 text-sm flex items-center gap-2">
+                <i data-lucide="school" class="w-4 h-4 text-teal-600"></i>
+                <span>Sinflar kesimida to'liq hisobot</span>
+            </h3>
+
+            <div class="max-h-64 overflow-y-auto">
+                <table class="w-full text-xs text-left">
+                    <thead>
+                        <tr class="border-b border-slate-200 text-slate-400 font-extrabold">
+                            <th class="py-2">Sinf</th>
+                            <th class="py-2 text-right">To'ldirganlar soni</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        {% for sinf_name, cnt in stats.by_class.items() %}
+                        <tr>
+                            <td class="py-2 font-bold text-slate-800">{{ sinf_name }}</td>
+                            <td class="py-2 text-right font-black text-emerald-700">{{ cnt }} nafar</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
